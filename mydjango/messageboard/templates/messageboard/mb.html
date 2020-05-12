@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message_board</title>
+</head>
+<body>
+  <form action="/mb/getall/" method="POST"> {% csrf_token %}
+      {% for message in msg_list %}
+       <li>
+           {{ message.posted_msg }}
+       </li>
+      {% endfor %}
+   </form>
+   <form action="/mb/addmsg/" method="POST"> {% csrf_token %}
+       <li>
+         <input type="text" name="message_txt"/>
+           <input type="submit" value="AddMessage"/>
+       </li>
+   </form>
+</body>
+</html>
